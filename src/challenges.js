@@ -32,22 +32,20 @@ function howManyTimes(words, word) {
 // Iteration 2 | Number Sequence
 function createSequence(number) {
 
-  let sequence = [];
+  const sequence = [];
 
-  for (let i = 0; i < number; i++) {
+  if(number === 0) {
+    return sequence;
+  }
+  for (let i = 0; i <= number; i++) {
     
-    let previousNumber = number - 1;
+    sequence.push(i);
 
-    if (number.length !== 0) {
-      
-      sequence.unshift(previousNumber - 1);
-      console.log("return:", sequence);
-    } 
-  
   }  
   
   return sequence;
 
+  
 }
 
 
