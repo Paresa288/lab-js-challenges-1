@@ -78,11 +78,11 @@ function filterOut(originalArray, filter) {
     return null;
   }
   for (let i = 0; i < originalArray.length; i++) {
-    console.log("running")
+    
     const element = originalArray[i];
     let found = false;
     for (let j = 0; j < filter.length; j++) {
-      console.log("second loop")
+      
       const filterWord = filter[j];
       if ( element === filterWord) {
       found = true;
@@ -114,7 +114,32 @@ const duplicateWords = [
   "bring"
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+
+  if (words.length === 0) {
+    return null;
+  }
+  console.log(`Array aportado: ${words}`);
+  let uniqueWords = [];
+
+  for (let i = 0; i < words.length; i++) {
+    console.log(uniqueWords)
+    const word1 = words[i];
+    let found = false;
+    for (let j = 0; j < uniqueWords.length; j++) {
+      
+      const word2 = uniqueWords[j];
+      if (word1 === word2) {
+        found = true;
+      }
+    }
+    if (!found) {
+      uniqueWords.push(word1);
+    }
+  }
+
+  return uniqueWords;
+}
 
 
 
