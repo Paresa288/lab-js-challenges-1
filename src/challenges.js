@@ -119,11 +119,11 @@ function uniquifyArray(words) {
   if (words.length === 0) {
     return null;
   }
-  console.log(`Array aportado: ${words}`);
+  
   let uniqueWords = [];
 
   for (let i = 0; i < words.length; i++) {
-    console.log(uniqueWords)
+    
     const word1 = words[i];
     let found = false;
     for (let j = 0; j < uniqueWords.length; j++) {
@@ -168,4 +168,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestProduct = 0;
+  if (matrix.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    const row = matrix[i];
+    console.log("Rows:", row);
+
+    for (let j = 0; j < row.length; j++) {
+      const number = row[j];
+      const number2 = row [j + 1];
+      const number3 = row[j + 2];
+      const number4 = row[j + 3];
+      const product = number * number2 * number3 * number4;
+      console.log(number, number2, number3, number4)
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
+    }
+    console.log("greatest product:", greatestProduct)
+  }
+
+  return greatestProduct;
+}
+
+greatestProduct(matrix);
