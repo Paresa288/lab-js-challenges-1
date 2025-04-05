@@ -13,13 +13,42 @@ const repeatedWords = [
   "matter"
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
+  let countWords = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    const currentWord = words[i];
+
+    if (word === currentWord ) {
+      countWords ++;
+    }
+  }
+  return countWords;
+}
 
 
 
 
 // Iteration 2 | Number Sequence
-function createSequence() {}
+function createSequence(number) {
+
+  let sequence = [];
+
+  for (let i = 0; i < number; i++) {
+    
+    let previousNumber = number - 1;
+
+    if (number.length !== 0) {
+      
+      sequence.unshift(previousNumber - 1);
+      console.log("return:", sequence);
+    } 
+  
+  }  
+  
+  return sequence;
+
+}
 
 
 
