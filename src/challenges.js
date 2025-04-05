@@ -72,7 +72,29 @@ function multiplyBy(someNumbers, aNumber) {
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(originalArray, filter) {
+  const filteredArray = [];
+  if (originalArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < originalArray.length; i++) {
+    console.log("running")
+    const element = originalArray[i];
+    let found = false;
+    for (let j = 0; j < filter.length; j++) {
+      console.log("second loop")
+      const filterWord = filter[j];
+      if ( element === filterWord) {
+      found = true;
+    }
+    }
+    if (!found) {
+      filteredArray.push(element);
+    }
+  }
+
+  return filteredArray;
+}
 
 
 
