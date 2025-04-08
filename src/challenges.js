@@ -169,28 +169,42 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let greatestProduct = 0;
-  if (matrix.length === 0) {
-    return null;
-  }
+  let greatestProduct = 0
+  
   for (let i = 0; i < matrix.length; i++) {
     const row = matrix[i];
-    console.log("Rows:", row);
-
     for (let j = 0; j < row.length; j++) {
-      const number = row[j];
-      const number2 = row [j + 1];
-      const number3 = row[j + 2];
-      const number4 = row[j + 3];
-      const product = number * number2 * number3 * number4;
-      console.log(number, number2, number3, number4)
-      if (product > greatestProduct) {
-        greatestProduct = product;
-      }
-    }
-    console.log("greatest product:", greatestProduct)
-  }
+      if (i < matrix.length - 3 && j < row.length - 3) {
+        const firstNumber = row[j];
+        const horizontalNumber1 = row [j + 1];
+        const horizontalNumber2 = row[j + 2];
+        const horizontalNumber3 = row[j + 3];
+        const verticalNumber1 = matrix[i + 1][j];
+        const verticalNumber2 = matrix[i + 2][j];
+        const verticalNumber3 = matrix[i + 3][j];
 
+        let horizontalProduct = firstNumber * horizontalNumber1 * horizontalNumber2 * horizontalNumber3;      
+ 
+        let verticalProduct = firstNumber * verticalNumber1 * verticalNumber2 * verticalNumber3; 
+        
+        if (horizontalProduct > greatestProduct) {
+          greatestProduct = horizontalProduct;
+        }
+        if (verticalProduct > greatestProduct) {
+          greatestProduct = verticalProduct;
+        } 
+
+      }
+        
+      
+         
+      
+      //console.log(`${firstNumber}*${horizontalNumber1}*${horizontalNumber2}*${horizontalNumber3}=${horizontalProduct}`);
+      //console.log(`${firstNumber}*${verticalNumber1}*${verticalNumber2}*${verticalNumber3}=${verticalProduct}`);
+    }
+  console.log(greatestProduct);
+  }
+  
   return greatestProduct;
 }
 
